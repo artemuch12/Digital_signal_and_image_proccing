@@ -1,3 +1,7 @@
+% нопедекемхе ярюрхярхвеяйху уюпюйрепхярхй хгнапюфемхъ: япедмее, дхяоепяхъ, 
+% цхярнцпюллю, щлохпхвеяйюъ тсмйжхъ пюяопедекемхъ
+% DETERMINATION OF STATISTICAL CHARACTERISTICS IMAGES: AVERAGE, VARIANCE, 
+% HISTOGRAM,EMPIRICAL DISTRIBUTION FUNCTION
 clear
 close all
 clc

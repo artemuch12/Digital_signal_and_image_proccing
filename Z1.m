@@ -1,3 +1,5 @@
+% щкелемрюпмше опнжедспш пюанрш я хгнапюфемхълх
+% BASIC PROCEDURES FOR WORKING WITH IMAGES
 clear
 close all
 clc

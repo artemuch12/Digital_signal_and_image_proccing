@@ -1,6 +1,6 @@
 % This function calculates histogram input image
 % Input data:
-%     image - image is grey shades
+%     image - image reduce to format uint8 and is grey shades
 % Output data:
 %     hysto - histogram
 function hysto = histogramMy(image)
@@ -8,6 +8,9 @@ function hysto = histogramMy(image)
 % Checking for color components 
 if color ~= 1
     error('Image not grey');
+end
+if ~strcmpi(class(image), 'uint8')
+    error('Image is not uint8');
 end
 
 minImage = min(min(image));
