@@ -1,17 +1,15 @@
-
-
 % Function of quantization of a signal.
 % Input Specifications:
 %   image - signal reports;
-%   bit - quantizer bit depth;
+%   levels - quantizer levels depth;
 % Output
 %   quanImage - quantized reports;
-function [quanImage] = imageQuantization (image, bit)
-if(bit <= 0)
-    error("Bit depth cannot be less than 0");
+function [quanImage] = imageQuantization (image, levels)
+if(levels <= 0)
+    error("levels depth cannot be less than 0");
 end
-if fix(bit)-bit ~= 0
-    error("Input variable 'Bit' is not integer!");
+if fix(levels)-levels ~= 0
+    error("Input variable 'levels' is not integer!");
 end
 
 [col, row, color] = size(image);
@@ -22,7 +20,6 @@ if ~strcmpi(class(image), 'uint8')
     error('Image is not uint8');
 end
 
-quanImage = image;
-
-minCount = min(min(image));
-maxCount = max(max(image));
+% We lead image to format double and divided all pixels to scale. Round
+% from nearest integer and return scale.
+quanImage = uint8(round(double(image)./(256/levels)).*(256/levels));
