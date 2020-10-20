@@ -6,10 +6,10 @@
 %   quanImage - quantized reports;
 function [quanImage] = imageQuantization (image, levels)
 if(levels <= 0)
-    error("levels depth cannot be less than 0");
+    error('levels depth cannot be less than 0');
 end
 if fix(levels)-levels ~= 0
-    error("Input variable 'levels' is not integer!");
+    error('Input variable levels is not integer!');
 end
 
 [col, row, color] = size(image);

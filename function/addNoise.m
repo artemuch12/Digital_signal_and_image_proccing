@@ -4,10 +4,10 @@
 function imageNoise = addNoise(image, bytes)
 
 if(bytes <= 0)
-    error("Bit depth cannot be less than 0");
+    error('Bit depth cannot be less than 0');
 end
 if fix(bytes)-bytes ~= 0
-    error("Input variable 'Bit' is not integer!");
+    error('Input variable Bit is not integer!');
 end
 
 [nRow, nCol, nColor] = size(image);
