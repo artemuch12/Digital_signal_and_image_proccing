@@ -18,7 +18,7 @@ harLocalMed = 1/9*[[1 1 1]
                    [1 1 1]
                    [1 1 1]];
 
-impImage = impNoise(image);
+impImage = impNoise(image, 10);
 figure;
 imshow(impImage);
 title("Image with noise");
@@ -28,7 +28,7 @@ figure;
 imshow(localMedStandart, []);
 title("Linear filter");
 
-medImage = medianFilter(impImage);
+medImage = medianFilter(impImage, 3);
 figure;
 imshow(medImage);
 title("Image with median filter");
