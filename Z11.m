@@ -14,31 +14,31 @@ figure;
 imshow(image,[]);
 title("Original Image Face");
 
-impulse5 = impulseResponce(5, nRow, nCol);
-impulse10 = impulseResponce(10, nRow, nCol);
-impulse20 = impulseResponce(20, nRow, nCol);
+KCHX5 = impulseResponce(5, nRow, nCol);
+KCHX10 = impulseResponce(10, nRow, nCol);
+KCHX20 = impulseResponce(20, nRow, nCol);
 
 figure;
 subplot(2,2,1);
-imshow(impulse5, []);
+imshow(ifftshift(KCHX5), []);
 title("Impulse responce from 5");
 subplot(2,2,2);
-imshow(impulse10, []);
+imshow(ifftshift(KCHX10), []);
 title("Impulse responce from 10");
 subplot(2,2,3);
-imshow(impulse20, []);
+imshow(ifftshift(KCHX20), []);
 title("Impulse responce from 20");
 
 figure;
 subplot(2,2,1);
-imshow(log(amplitudeSpectr(impulse5)+1), []);
-title("Impulse responce from 5");
+imshow(KCHX5, []);
+title("KCHX from 5");
 subplot(2,2,2);
-imshow(log(amplitudeSpectr(impulse10)+1), []);
-title("Impulse responce from 10");
+imshow(KCHX10, []);
+title("KCHX 10");
 subplot(2,2,3);
-imshow(log(amplitudeSpectr(impulse20)+1), []);
-title("Impulse responce from 20");
+imshow(KCHX20, []);
+title("KCHX 20");
 
 rasImage5 = rasfokus(image, 5);
 rasImage10 = rasfokus(image, 10);
@@ -55,9 +55,9 @@ subplot(2,2,3);
 imshow(rasImage20, []);
 title("Distortions from 20");
 
-imwrite(rasImage5, 'rasImage5.bmp');
-imwrite(rasImage10, 'rasImage10.bmp');
-imwrite(rasImage20, 'rasImage20.bmp');
+save('rasImage5.mat', rasImage5);
+save(rasImage10, 'rasImage10.mat');
+save(rasImage20, 'rasImage20.mat');
 
 rmpath('.\image');
 rmpath('.\function');

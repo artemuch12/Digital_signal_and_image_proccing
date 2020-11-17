@@ -17,9 +17,8 @@ xCentr = ceil(nCol/2);
 for y = 1:1:nRow
     for x = 1:1:nCol
         if((y-yCentr)^2+((x-xCentr))^2) <= rad^2
-            filter(y,x) = 1;
+            filter(y,x) = 1/(pi*rad^2);
         end
     end
 end
-time = filter./sum(sum(filter));
-filter = fftshift(time);
+filter = fftshift(filter);
