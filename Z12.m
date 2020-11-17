@@ -42,6 +42,29 @@ subplot(2,2,3);
 imshow(resImage20, []);
 title("Distortions from 20");
 
+rasImage5destrHor = rasImage5;
+rasImage5destrHor(1,:) = 0;
+
+resImage5destrHor = restoringImage(rasImage5destrHor, 5);
+figure;
+imshow(resImage5destrHor, []);
+
+rasImage5destrVer = rasImage5;
+rasImage5destrVer(:,1) = 0;
+
+resImage5destrVer = restoringImage(rasImage5destrVer, 5);
+figure;
+imshow(resImage5destrVer, []);
+
+rasImage5destrVer = rasImage5;
+rasImage5destrVer(:,1) = 0;
+
+rasImage5destrHV = rasImage5;
+rasImage5destrHV(:,1) = 0;
+rasImage5destrHV(1,:) = 0;
+resImage5destrHV = restoringImage(rasImage5destrHV, 5);
+figure;
+imshow(resImage5destrHV, []);
 
 rmpath('.\image');
 rmpath('.\function');
