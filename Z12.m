@@ -14,9 +14,7 @@ figure;
 imshow(image,[]);
 title("Original Image Face");
 
-rasImage5 = rasfokus(image, 5);
-rasImage10 = rasfokus(image, 10);
-rasImage20 = rasfokus(image, 20);
+load('rasImage.mat', 'rasImage5', 'rasImage10', 'rasImage20')
 
 figure;
 subplot(2,2,1);
@@ -28,10 +26,6 @@ title("Distortions from 10");
 subplot(2,2,3);
 imshow(rasImage20, []);
 title("Distortions from 20");
-
-imwrite(rasImage5, 'rasImage5.bmp');
-imwrite(rasImage10, 'rasImage10.bmp');
-imwrite(rasImage20, 'rasImage20.bmp');
 
 resImage5 = restoringImage(rasImage5, 5);
 resImage10 = restoringImage(rasImage10, 10);

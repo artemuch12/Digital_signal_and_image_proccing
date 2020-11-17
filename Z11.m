@@ -55,9 +55,7 @@ subplot(2,2,3);
 imshow(rasImage20, []);
 title("Distortions from 20");
 
-save('rasImage5.mat', rasImage5);
-save(rasImage10, 'rasImage10.mat');
-save(rasImage20, 'rasImage20.mat');
+save('rasImage.mat', 'rasImage5', 'rasImage10', 'rasImage20');
 
 rmpath('.\image');
 rmpath('.\function');
