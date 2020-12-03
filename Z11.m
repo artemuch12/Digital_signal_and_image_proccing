@@ -8,12 +8,14 @@ clc
 addpath('.\image');
 addpath('.\function');
 
+% Загрузка исходного изображения
 image = double(imread('len.bmp'));
 [nRow, nCol, nColor] = size(image);
 figure;
 imshow(image,[]);
 title("Original Image Face");
 
+% Не корректное название переменных; получение ФРТ (ИХ) искажений
 KCHX5 = impulseResponce(5, nRow, nCol);
 KCHX10 = impulseResponce(10, nRow, nCol);
 KCHX20 = impulseResponce(20, nRow, nCol);
@@ -40,6 +42,7 @@ subplot(2,2,3);
 imshow(KCHX20, []);
 title("KCHX 20");
 
+% Расфокусировка изображений
 rasImage5 = rasfokus(image, 5);
 rasImage10 = rasfokus(image, 10);
 rasImage20 = rasfokus(image, 20);
@@ -55,6 +58,7 @@ subplot(2,2,3);
 imshow(rasImage20, []);
 title("Distortions from 20");
 
+% Сохранение во внешний файл искаженных изображений
 save('rasImage.mat', 'rasImage5', 'rasImage10', 'rasImage20');
 
 rmpath('.\image');

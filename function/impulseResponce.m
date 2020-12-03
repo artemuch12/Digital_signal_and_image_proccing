@@ -1,5 +1,13 @@
+% Функция impulseResponce создает искажения с цилиндрической ФРТ заднного
+% радиуса
+% 
+% Входные данные:
+%       rad         - радиус искажений
+%       nRow и nCol - геометрические размеры изображения на которое будет
+%                     налогаться искажения
 function filter = impulseResponce(rad, nRow, nCol)
 
+% Блок проверок
 if rad <= 0
     error("Radius is not positive");
 end
@@ -8,7 +16,7 @@ if rad < 1
 end
 
 if nRow <= 0 || nCol <= 0
-    error("Size is not positive");
+    error("Size is not positive or equals zero");
 end
 
 filter = zeros(nRow, nCol);
