@@ -14,7 +14,7 @@ figure;
 imshow(image,[]);
 title("Original Image Face");
 
-newImage = geoTrans(image, 1, 45, 1, 1);
+newImage = geoTrans(image, 1.5, 45, 128, 128);
 figure;
 imshow(newImage, [])
 

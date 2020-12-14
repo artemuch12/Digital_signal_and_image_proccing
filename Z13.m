@@ -22,7 +22,7 @@ matrix = [0 1 0
       
 % Подчеркивание контуров
 gradImage = gradMetod(image);
-laplaceMethod = conv2(matrix, image);
+laplaceMethod = abs(conv2(matrix, image));
 
 % Вывод изображений с контурами 
 figure;
@@ -59,7 +59,7 @@ plot(empLaplace);
 
 % Определение порогов для бинаризации изображений по их эмперическим
 % функциям. Значение эмперической функции для порога. 
-thr = 0.5;
+thr = 0.9;
 thrGrad = thresholdEmperFunction(empGrad, thr);
 thrLaplace = thresholdEmperFunction(empLaplace, thr);
 fprintf("Threshold for Gradient methode equals: %.f\n", thrGrad);

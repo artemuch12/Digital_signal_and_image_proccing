@@ -39,21 +39,22 @@ if kMascht <= 0
 end
 
 
-% Выделяем память под новое изображение. Корень(2) необходим, чтобы дать
-% максимум памяти при повороте. kMascht учитывает масштабирование.
-newRow = round(kMascht*nRow *sqrt(2));
-newCol = round(kMascht*nCol *sqrt(2));
+% Выделяем память под новое изображение.
+newRow = round(nRow);
+newCol = round(nCol);
 newImage = zeros(newRow, newCol);
 
-% Пересчитваем все новые координаты. 
-% y-kMascht*y0 и x-kMascht*x0 - позволяет оставить (с учетом коэффицента 
-% масштаба) точку (y0, x0) не подвижной.
+dy = y0*(1-cosGrad(angle)/kMascht)-x0*sinGrad(angle)/kMascht;
+dx = y0*sinGrad(angle)/kMascht+x0*(1-cosGrad(angle)/kMascht);
+
+
+% Пересчитваем все новые координаты в старые. 
 for y = 1:newRow
     for x = 1:newCol
-        yNew = round((y-kMascht*y0)*cosGrad(angle)/kMascht+...
-            (x-kMascht*x0)*sinGrad(angle)/kMascht+y0);
-        xNew = round(-1*(y-kMascht*y0)*sinGrad(angle)/kMascht+...
-            (x-kMascht*x0)*cosGrad(angle)/kMascht+x0);
+        yNew = round(y*cosGrad(angle)/kMascht+...
+            x*sinGrad(angle)/kMascht+dy);
+        xNew = round(-1*y*sinGrad(angle)/kMascht+...
+            x*cosGrad(angle)/kMascht+dx);
         if (yNew > 0) && (xNew >0) && (yNew <= nRow) && (xNew <= nCol)
             newImage(y, x) = image(yNew,xNew);
         end
